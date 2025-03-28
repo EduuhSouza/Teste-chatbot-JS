@@ -43,11 +43,16 @@ const createMenssageElement = (content, ...classes) => {
         console.log(data);
 
         // RESPOSTA BOT
-        const apiResponseText = data.candidates[0].content.parts[0].text.trim();
+        const apiResponseText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, "$1").trim();
         messageElement.innerText = apiResponseText;
 
         } catch (error){
             console.log(error);
+            // messageElement.innerText = error.mensage;
+            // messageElement.style.color = 'red';
+        } finally {
+            incomingMessageDiv.classList.remove("thinking");
+            chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
         }
     }
 
@@ -63,6 +68,8 @@ const createMenssageElement = (content, ...classes) => {
     outgoingMessageDiv.querySelector(".message-text").textContent = userData.message;
 
     chatBody.appendChild(outgoingMessageDiv);
+        chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
+
 
 // SIMULA O BOT RESPONDENDO
     setTimeout(() => {
@@ -80,6 +87,7 @@ const createMenssageElement = (content, ...classes) => {
         outgoingMessageDiv.querySelector(".message-text").textContent = userData.message;
     
         chatBody.appendChild(incomingMessageDiv);
+        chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
         generateBotResponse(incomingMessageDiv);
     }, 600);
 }
