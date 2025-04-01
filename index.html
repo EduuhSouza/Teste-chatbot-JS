@@ -53,11 +53,24 @@
                 <!-- CONTROLES BARRA DE PESQUISA / ICONES -->
                 <div class="chat-controls">
 
-                    <button type="button"><i class="fa-solid fa-paperclip"></i></button>
-
+                    <!-- BOTAO DE EMOJI -->
                     <button type="button"><i class="fa-regular fa-face-smile"></i></button>
 
+                    <!-- BOTAO DE UPLOAD DE IMAGENS -->
+                    <div class="file-upload-wrapper">
+                        <input type="file" accept="images/*" id="file-input" hidden>
+                        <img src="#">
+                        <button type="button" id="file-upload"><i class="fa-solid fa-paperclip"></i></button>
+
+                        <!-- BOTAO Q CANCELA A IMG -->
+                        <!-- <button type="button" id="file-calcel"><i class="fa-solid fa-xmark"></i></button> -->
+                    </div>
+
+                        <!-- BOTAO DE ENVIAR -->
                     <button type="submit" id="send-message"><i class="fa-solid fa-arrow-up"></i></i></button>
+
+                    <!-- BOTAO DE AUDIO -->
+                    <button type=""><i class="fa-solid fa-microphone"></i></button>
 
                 </div>
             </form>
